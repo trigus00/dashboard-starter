@@ -1,20 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <div class="container">
-        <div class="pane pane1">1</div>
-        <div class="pane pane2"><img src="https://media3.giphy.com/media/iDJQRjTCenF7A4BRyU/giphy.gif?cid=021aea08dhb71c4pws34xkce34prvkwveycgr4fstdk5g5ok&rid=giphy.gif&ct=g" alt=""></div>
-        <div class="pane pane3">3</div>
-        <div class="pane pane4">4</div>
-    </div>
 
-    <script src="main.js" type="module"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/main.css">
+  <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+
+  <title>Homepage</title>
+</head>
+
+<body style="background-color:linen;">
+
+  <div class="container">
+    <header id="page-header">
+      <img src="avatar.png" alt="Avatar" class="avatar" style="margin-right: 50px;">
+      <a class="site-title"
+        style="display: flex; margin-top: 90px; margin-bottom: 1px; align-items: flex-end;position: relative; top: 60px;">
+        Gus's Dashboard !</a>
+      <nav>
+        <h1 style="text-align: left;">Welcome to my Dashboard!</h1>
+      </nav>
+    </header>
+
+    <aside id="myDIV" class="sidebar">
+      <!-------------------------------------------------------- Start todo list ----------------------------------->
+      <div class="header" style="margin-top: 50px">
+        <h2>My To Do List Today</h2>
+        <form>
+          <input type="text" id="myInput" placeholder="..Things to do..." style="text-align: center;">
+          <span id="todo" onclick="newElement()" class="addBtn"> Add </span>
+        </form>
+      </div>
+
+      <ul id="myUL">
+        <li>Read a book</li>
+        <li>Organize office</li>
+      </ul>
+      <!-------------------------------------------------------- End todo list------------------------------------>
+
+      <!-------------------------------------------------------- Start Fact Card------------------------------------>
+      <div class="container" style="border:dotted; margin-top: 50px; background-color: white;">
+        <h2>Fun Fact:</h2>
+        <p id='fact' style="margin-top: 20px; margin-left:20px"></p>
+        <p class="facts"></p>
+        <button id="btnF" style="margin-right: 100px; "> ~~~ Fact of the day ~~~ </button>
+      </div>
+      <!-------------------------------------------------------- End Fact Card------------------------------------>
+      <!-------------------------------------------------------- Start Weather Card------------------------------------>
+      <section id="weather_card">
+        <h1 style="font-family: fantasy; font-weight: bold;font-size: x-large; margin-top: 60px;">Today's Weather</h1>
+        <hr>
+        </hr>
+        <div class="row">
+          <div class="card">
+            <div class="card-body_weather">
+              <form class="example">
+                <blockquote class="blockquote weather">
+                  <p id="location" style="font-style: italic;"></p>
+                  <table>
+                    <p id='location'> </p>
+                    <tr>
+                      <th>Current Tempurature:</th>
+                      <th> Feels like: </th>
+                      <th>High Today: </th>
+                      <th>Low today: </th>
+                    </tr>
+                    <td id="temp"> </td>
+                    <td id="feel"> </td>
+                    <td id="high"> </td>
+                    <td id="low"> </td>
+                  </table>
+                  <input id="searchW" type="text" placeholder="Enter city or Zip code" name="searchW">
+                  <button id="btnW" >Search</button>
+                </blockquote>
+              </form>
+            </div>
+          </div>
+        </div>
+        </form>
+    </aside>
+    <!-------------------------------------------------------- End Fact Card------------------------------------>
+    <main>
+      <article class="post">
+        <header class="post-header">
+          <!-------------------------------------------------------- Start Quote Card------------------------------------>
+
+          <div class="pane pane1">
+            <div class="card">
+              <div id="quoteBox" class="card-body"
+                style="border: solid; margin: 50px 50px; border-radius: 20px; background-color:lightcyan">
+                <h1 style="text-align: center;  ">Inspiration to start you day</h1>
+                <hr>
+                </hr>
+                <blockquote class="blockquote mb-0">
+                  <p id="quote" style="text-align: center; font-size: 25px; font-family:fantasy; font-style: italic;">
+                    ... Click for your inspiration ...</p>
+                  <footer class="blockquote-footer">
+                    <cite title="Source Title"></cite>
+                  </footer>
+                </blockquote>
+                <button id="btn" class="btn btn-primary " style="height: 6%;width: 40% ; margin-top: 20px;"> ~~~ Click
+                  ~~~ </button>
+                <div class="card-footer">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-------------------------------------------------------- End Quote Card---------------------------------------->
+
+
+
+          <!-------------------------------------------------------- Start News Card------------------------------------>
+          <article>
+            <div class="col-sm" style="margin-top: 100px; width: 88%;">
+              <div class="card_news"
+                style="border-radius: 50px; margin-left: 50px ;border:solid; background-color: white;">
+                <div class="card_body_News">
+                  <form class="example_news">
+                    <blockquote id="news" class="blockquote Headline">
+
+                      <h1 id="headline"> Today's Headlines </h1>
+                      <img id="image"> </p>
+                      <p id="title"> </p>
+                      <p id="description"></p>
+
+                      <a id="previous" class="previous round" style="width:max-width"> &#8249; </a>
+                      <a id="next" class="next round"> &#8250; </a>
+
+                    </blockquote>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </article>
+          </section>
+  </div>
+  <!-------------------------------------------------------- End News Card------------------------------------>
+  <!---------------------------------------------------------- End of HTML ------------------------------------->
+ 
+  <footer id="page-footer">
+    <p>
+      <hr style="margin-top: 10px;">
+      Copyright &copy; 2021, Talent Path
+    </p>
+  </footer>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js" type="module"></script>
+  <script src="todo.js"></script>
+  <script src="weather.js" type="module"></script>
+  <script src="news.js" type=module></script>
+  <script src="trivia.js" type="module"></script>
 </body>
+
 </html>
